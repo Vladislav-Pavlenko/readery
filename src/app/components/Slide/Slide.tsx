@@ -1,20 +1,18 @@
 import Image from "next/image";
-import styles from "./BooksListItem.module.css";
+import styles from "./Slide.module.css";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import Link from "next/link";
+import 'swiper/css';
 
 
 interface BooksListItemProps {
     id: string;
-  title: string;
-  author: string;
+    title: string;
 }
 export default function BooksListItem({
-    id,
-  title,
-  author,
-}: BooksListItemProps) {
+                                          id,
+                                         title
+                                      }: BooksListItemProps) {
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     useEffect(() => {
@@ -33,20 +31,16 @@ export default function BooksListItem({
 
         loadImage();
     }, [id]);
-  return (
-    <li className={styles.item}>
-        <Link href={`/books/${id}`}>
-        {imageUrl && <Image
-            className={styles.image}
-            src={imageUrl}
-            alt={`Book ${title}`}
-            width="150"
-            height="232"
-            loading="lazy"
-        />}
+    return (
+        <div className={styles.content}>
+            {imageUrl && <Image
+                className={styles.image}
+                src={imageUrl}
+                alt={`Book ${title}`}
+                width="150"
+                height="232"
 
-      <h2 className={styles.title}>{title}</h2>
-      <p className={styles.author}>{author}</p></Link>
-    </li>
-  );
+            />}
+        </div>
+    );
 }

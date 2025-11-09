@@ -1,0 +1,18 @@
+.title{
+    color: #242A30;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.description{
+    color: #242A30;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 8px 16px 13px ;
+}
+
